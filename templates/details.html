@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container" >
+    <div class="row">
+        <div class="col-md-4">
+            {% if task_list %}
+            <h4>Task to be Completed</h4>
+            {% endif %}
+            <div class="card mb-4">
+                <div class="card-body shadow">
+                    <h5 class="card-title">{{task_list.task}}</h5>
+                    <h5 class="card-title">{{task_list.priority}}</h5>
+                    <h5 class="card-title">{{task_list.date}}</h5>
+                    <a type="button" class="btn btn-danger" href="{% url 'task:delete_view' task_list.id %}">Done</a>
+                    <a type="button" class="btn btn-success" href="{% url 'task:update_view' task_list.id %}">Update</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

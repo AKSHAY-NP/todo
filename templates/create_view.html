@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container w-50" >
+    <form method="post" class="p-4 shadow-lg">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label >Task Name</label>
+            <input type="text" class="form-control" name="task" placeholder="Enter Task">
+        </div>
+        <div class="form-group">
+            <label >Priority</label>
+            <input type="number" class="form-control" name="priority" placeholder="Enter Priority">
+        </div>
+        <div class="form-group">
+            <label >Date</label>
+            <input type="date" class="form-control" name="date" placeholder="Enter Date">
+        </div>
+        <div class="row">
+            <div class="col text-left">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="col text-right">
+              <a class="btn btn-primary" href="{% url 'task:list_view' %}">List Items</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock  %}

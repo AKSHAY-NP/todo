@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container w-50" >
+    {% if task_list %}
+    <span class="h3">List of all Tasks</span>
+    <a type="button" class="btn btn-primary mb-2 ml-3" href="{% url 'task:create_view' %}">Add</a>
+    {% endif %}
+    {% for i in task_list %}
+        <div class="card mb-4">
+            <div class="card-body shadow">
+                <h5 class="card-title">{{i.task}}</h5>
+                <h5 class="card-title">{{i.priority}}</h5>
+                <h5 class="card-title">{{i.date}}</h5>
+                <a type="button" class="btn btn-success" href="{% url 'task:detail_view' i.id %}">Details</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock  %}
